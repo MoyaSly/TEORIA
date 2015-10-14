@@ -17,17 +17,33 @@ public:
 	int base;
 	int altura;
 
+	Shape(){};
+
 	virtual float GetArea()const
 	{
 		return 0;
 	}
+	virtual ~Shape(){};
 
 };
+
+
 
 class Triangle : public Shape
 {
 public:
 	float GetArea()const { return (base*altura) / 2; }
+	int* numbers;
+
+	Triangle()
+	{
+		numbers = new int[999];
+	}
+
+	~Triangle()
+	{
+		delete[] numbers;
+	}
 
 };
 
@@ -35,8 +51,43 @@ class Cuadrado : public Shape
 {
 public:
 	float GetArea()const { return (base*altura); }
+	int* numbers;
+
+	Cuadrado()
+	{
+		numbers = new int[999];
+	}
+
+	~Cuadrado()
+	{
+		delete[] numbers;
+	}
 };
 
+
+void Swap(int* node1, int* node2)
+{
+	int a;
+	a = *node1;
+	*node1 = *node2;
+	*node2 = a;
+}
+
+void Swap(float* node1, float* node2)
+{
+	float a;
+	a = *node1;
+	*node1 = *node2;
+	*node2 = a;
+}
+
+void Swap(char* node1, char* node2)
+{
+	char a;
+	a = *node1;
+	*node1 = *node2;
+	*node2 = a;
+}
 
 int main()
 {
@@ -48,9 +99,29 @@ int main()
 	s2->altura = 4;
 	s2->base = 3;
 
-
 	cout << s1->GetArea() << endl;
 	cout << s2->GetArea() << endl;
+	int a = 5;
+	int b = 6;
+	float a1 = 5.0f;
+	float b1 = 6.6f;
+	char a2 = '5';
+	char b2 = '6';
 
+	int* pa = &a;
+	int* pb = &b;
+	float* pa1 = &a1;
+	float* pb1 = &b1;
+	char* pa2 = &a2;
+	char* pb2 = &b2;
+
+	Swap(pa, pb);
+	Swap(pa1, pb1);
+	Swap(pa2, pb2);
+
+	cout << endl << a << endl << b << endl << a1 << endl << b1 << endl << a2 << endl << b2 << endl;
+
+	delete s1;
+	delete s2;
 	getchar();
 }
