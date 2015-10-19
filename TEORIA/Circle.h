@@ -8,9 +8,10 @@ class Circle
 public:
 	int rad;
 
-	Circle operator=(const Circle& r)
+	const Circle operator=(const Circle& r)
 	{
 		rad = r.rad;
+		return (*this);
 	}
 
 	bool operator==(const Circle& r) const
@@ -23,14 +24,16 @@ public:
 		return (rad != r.rad) ? true : false;
 	}
 
-	Circle operator+=(const Circle& r)
+	const Circle operator+=(const Circle& r)
 	{
 		rad += r.rad;
+		return (*this);
 	}
 
-	Circle operator-=(const Circle& r)
+	const Circle operator-=(const Circle& r)
 	{
 		rad -= r.rad;
+		return (*this);
 	}
 
 	Circle operator+(const Circle& r) const

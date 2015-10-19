@@ -7,7 +7,40 @@
 // al struct si no poses res tot el public, en canvi a una class tot es privat a no ser que posis public.
 // struct es per emmagatzemar dades.
 // la unica diferencia entre class y struct es el private i el public base.
-//el polimorfisme fa que un mateix metode faci diferents resultats segons la especialització de la classe.
+// el polimorfisme fa que un mateix metode faci diferents resultats segons la especialització de la classe.
+// const char* c -> puedes modificar hacia donde apunta c, pero no lo que apunta (*c = NULL) MAL, (c++) BIEN. porque cambia la direccion de c.
+/* 
+///////////////Metodes Automatics///////////////////////
+Class Gaga
+{
+	public:
+		Gaga();						-> CONSTRUCTOR PER DEFECTE
+		Gaga(const Gaga&);			-> CONSTRUCTOR COPIA
+		~Gaga();					-> DESTRUCTOR
+
+		Gaga(Gaga&&);				-> CONSTRUCTOR MOURE
+		Gaga operator=(Thing&&);	-> ASIGNACIÓ
+};
+
+Els 3 primers es creen automaticament.
+
+Per crearse el 4t s'han de cumplir:
+	!Constuctor de copia.
+	!Asignació.
+	!Move.
+	!Destructor.
+	Si no esta marcat com a deleted.
+	Si tots els membres es poden moure.
+
+Per crearse el 5e s'han de cumplir:
+	!Constuctor de copia.
+	!
+	!Constructor de moure.
+	!Destructor.
+	Si no esta marcat com a deleted.
+	Si tots els membres es poden moure.
+
+*/
 
 using namespace std;
 

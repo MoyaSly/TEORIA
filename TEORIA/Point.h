@@ -6,12 +6,12 @@ class Point
 public:
 	int x, y;
 
-	Point& operator = (const Point& a)
+	const Point& operator = (const Point& a)
 	{
 		x = a.x;
 		y = a.y;
 
-		return *this;
+		return (*this);
 	}
 
 	bool operator == (const Point& a) const
@@ -24,20 +24,20 @@ public:
 		return (x != a.x && y != a.y) ? true : false;
 	}
 
-	Point& operator += (const Point& a)
+	const Point& operator += (const Point& a)
 	{
 		x = x + a.x;
 		y = y + a.y;
 
-		return *this;
+		return (*this);
 	}
 
-	Point& operator -= (const Point& a)
+	const Point& operator -= (const Point& a)
 	{
 		x = x - a.x;
 		y = y - a.y;
 
-		return *this;
+		return (*this);
 	}
 
 	Point operator + (const Point& a) const
