@@ -1,12 +1,13 @@
-#define PI 3,1415
-
 #ifndef __CIRCLE__
 #define __CIRCLE__
 
+#define PI 3,1415
+
+template <class TYPE>
 class Circle
 {
 public:
-	int rad;
+	TYPE rad;
 
 	const Circle operator=(const Circle& r)
 	{

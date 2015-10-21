@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+#include "Circle.h"
+#include "Point2D.h"
 
 // Friend, si a la calss A posem "friend class B;" la class B pot veure tot el private i protected de A.
 // al struct si no poses res tot el public, en canvi a una class tot es privat a no ser que posis public.
@@ -97,8 +99,17 @@ public:
 	}
 };
 
+template <class TYPE>
 
-void Swap(int* node1, int* node2)
+void Swap(TYPE& node1, TYPE& node2)
+{
+	TYPE a;
+	a = node1;
+	node1 = node2;
+	node2 = a;
+}
+
+/*void Swap(int* node1, int* node2)
 {
 	int a;
 	a = *node1;
@@ -120,11 +131,12 @@ void Swap(char* node1, char* node2)
 	a = *node1;
 	*node1 = *node2;
 	*node2 = a;
-}
+}*/
+
 
 int main()
 {
-	Shape* s1 = new Triangle();
+/*	Shape* s1 = new Triangle();
 	Shape* s2 = new Cuadrado();
 
 	s1->altura = 4;
@@ -141,7 +153,13 @@ int main()
 	char a2 = '5';
 	char b2 = '6';
 
-	int* pa = &a;
+	cout << endl << a << endl << b << endl << a1 << endl << b1 << endl << a2 << endl << b2 << endl;
+	delete s1;
+	delete s2;
+	*/
+
+
+/*	int* pa = &a;
 	int* pb = &b;
 	float* pa1 = &a1;
 	float* pb1 = &b1;
@@ -151,10 +169,12 @@ int main()
 	Swap(pa, pb);
 	Swap(pa1, pb1);
 	Swap(pa2, pb2);
+	*/
 
-	cout << endl << a << endl << b << endl << a1 << endl << b1 << endl << a2 << endl << b2 << endl;
+	iPoint2D a;
+	iPoint2D b;
 
-	delete s1;
-	delete s2;
+	Swap(a, b);
+
 	getchar();
 }

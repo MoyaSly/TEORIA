@@ -1,30 +1,33 @@
-#ifndef __POINT__
-#define __POINT__
+#ifndef __POINT2D_H__
+#define __POINT2D_H__
 
-class Point
+template <class TYPE>
+class Point2D
 {
 public:
-	int x, y;
+	TYPE x, y;
 
-	const Point& operator = (const Point& a)
+	~Point2D(){  };
+
+	/*const Point2D& operator = (const Point2D& a)
 	{
 		x = a.x;
 		y = a.y;
 
 		return (*this);
-	}
+	}*/
 
-	bool operator == (const Point& a) const
+	bool operator == (const Point2D& a) const
 	{
 		return (x == a.x && y == a.y) ? true : false;
 	}
 
-	bool operator != (const Point& a) const
+	bool operator != (const Point2D& a) const
 	{
 		return (x != a.x && y != a.y) ? true : false;
 	}
 
-	const Point& operator += (const Point& a)
+	const Point2D& operator += (const Point2D& a)
 	{
 		x = x + a.x;
 		y = y + a.y;
@@ -32,7 +35,7 @@ public:
 		return (*this);
 	}
 
-	const Point& operator -= (const Point& a)
+	const Point2D& operator -= (const Point2D& a)
 	{
 		x = x - a.x;
 		y = y - a.y;
@@ -40,7 +43,7 @@ public:
 		return (*this);
 	}
 
-	Point operator + (const Point& a) const
+	Point2D operator + (const Point2D& a) const
 	{
 		Point k;
 		k.x = x + a.x;
@@ -49,7 +52,7 @@ public:
 		return k;
 	}
 
-	Point operator - (const Point& a) const
+	Point2D operator - (const Point2D& a) const
 	{
 		Point k;
 		k.x = x - a.x;
@@ -66,17 +69,20 @@ public:
 		return false;
 	}
 
-	Point SetZero()
+	Point2D SetZero()
 	{
 		x = 0;
 		y = 0;
 	}
 
-	Point Negate()
+	Point2D Negate()
 	{
 		x = -x;
 		y = -y;
 	}
 };
+
+typedef Point2D<int> iPoint2D;
+typedef Point2D<float> fPoint2D;
 
 #endif
