@@ -7,15 +7,13 @@ class Point2D
 public:
 	TYPE x, y;
 
-	~Point2D(){  };
-
-	/*const Point2D& operator = (const Point2D& a)
+	const Point2D& operator = (const Point2D& a)
 	{
 		x = a.x;
 		y = a.y;
 
 		return (*this);
-	}*/
+	}
 
 	bool operator == (const Point2D& a) const
 	{

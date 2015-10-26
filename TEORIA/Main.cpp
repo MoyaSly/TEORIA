@@ -44,6 +44,25 @@ Per crearse el 5e s'han de cumplir:
 
 */
 
+/*		STATIC
+
+1.	per definir una variable global
+		- amb static només es pot accedir des del mateix arxiu a la variable global.
+
+2.	per definir una varieble en una funció:
+		- adressa inmodificable
+		- existeix fins el final del programa
+		- s'inicialtza 1 cop
+		- la variable quedara com a global i sempre que s'entri a la funció no la tornara a inicialitzar i podras cridarla des de fora de la funció.
+
+3.	per una funció o una variable d'una clase
+		- no queda vinculat amb un sol objecte
+		- si la clase té un valor static ocupara memoria
+		- es un valor vinculat a tots els objectes, es a dir tots el modifiquen, si a 3 objectes sumesis 1 es sumarian 3 a la variable.
+		- s'han dinicialitzar fora de la classe i en un .cpp (en un .h no es poden inicialitar estatiques)
+
+*/
+
 using namespace std;
 
 class Shape
