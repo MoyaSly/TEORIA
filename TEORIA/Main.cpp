@@ -4,6 +4,7 @@
 #include "Circle.h"
 #include "Point2D.h"
 #include "String.h"
+#include "Defs.h"
 
 // Friend, si a la calss A posem "friend class B;" la class B pot veure tot el private i protected de A.
 // al struct si no poses res tot el public, en canvi a una class tot es privat a no ser que posis public.
@@ -200,7 +201,7 @@ int main()
 
 	a += b;
 
-	printf("%s", a.StringToChar());
+	printf("%s", a.c_str());
 
 	getchar();
 }

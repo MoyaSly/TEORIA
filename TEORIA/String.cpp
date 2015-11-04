@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
-#include <string>
 #include "String.h"
 
 String::String()
@@ -13,7 +12,7 @@ String::String()
 
 String::~String()
 {
-	if (str != NULL)
+	if (str != '\0')
 		delete[] str;
 }
 
@@ -91,20 +90,23 @@ const String& String::operator=(const String& string)
 {
 }
 */
-const String& String::operator+=(const String& string)
+/*const String& String::operator+=(const String& string)
 {
 	uint need_size = string.Capacity() + strlen(str) + 1;
+	char* tmp = new char[mem_capacity];
+	strcpy_s(tmp, mem_capacity, str);
+
 	if (need_size > mem_capacity)
 	{
 		delete[] str;
 		mem_capacity = need_size;
 		str = new char[need_size];
+		strcpy_s(
 	}
-	String tmp;
 
-	strcpy_s(tmp, mem_capacity, str);
+	
 	return *this;
-}
+}*/
 
 const char* String::c_str()const
 {

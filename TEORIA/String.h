@@ -1,7 +1,7 @@
-#include <string>
+#include "Defs.h"
 #ifndef __STRING__
 #define __STRING__
-typedef unsigned int uint;
+
 
 class String
 {
@@ -32,9 +32,9 @@ public:
 	//operador = String
 	const String& operator=(const String& string);
 	//operador += Char
-	const String& operator+=(const char* str_c);
+	//const String& operator+=(const char* str_c);
 	//operador += String
-	const String& operator+=(const String& string);
+	//const String& operator+=(const String& string);
 
 
 	//Capacity

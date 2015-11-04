@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Defs.h" />
+    <ClInclude Include="DynArray.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>
