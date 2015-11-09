@@ -27,11 +27,10 @@ public:
 		tmp = new TYPE[capacity];
 		memcpy(data, tmp, num_elements*sizeof(TYPE));
 		delete[] data;
-		data = new TYPE[mem_res];
+		capacity = mem_res;
+		data = new TYPE[capacity];
 		memcpy(tmp, data, num_elements*sizeof(TYPE));
 		delete[] tmp;
-
-		capacity = mem_res;
 	}
 	//DESTRUCTOR
 	~DynArray()
@@ -43,7 +42,7 @@ public:
 	//AÑADE 1 CARACTER
 	void PushBack(const TYPE& data)
 	{
-		if (capacity > (num_elements + 1)
+		if (capacity > num_elements)
 		{
 			this->data[num_elements++] = data;
 		}
@@ -57,16 +56,15 @@ public:
 			memcpy(tmp, data, num_elements*sizeof(TYPE));
 			data[capacity] = tmp;
 			delete[] tmp;
-
 		}
 
 	}
-
+	//RETURN CAPACIDAD
 	uint Capacity()
 	{
 		return capacity;
 	}
-
+	//RETURN TAMAÑO
 	uint Size()
 	{
 		return num_elements;
@@ -74,23 +72,17 @@ public:
 	//RESET DATA
 	void Clear()
 	{
-		data = NULL;
-		capacity = BLOCK;
 		num_elements = 0;
 	}
-
+	//ESTA VACIO?
 	bool Empty()
 	{
 		if (data == NULL) ? true : false;
 	}
 	//RETURN POSICION ESPECIFICADA
-	TYPE At(uint pos)
+	const TYPE At(uint pos)
 	{
-		return data[pos];
+		if (pos <= num_elements) ? data[pos] : NULL;
 	}
-
 };
-
-
-
 #endif
