@@ -27,7 +27,7 @@ public:
 		tmp = new TYPE[capacity];
 		memcpy(data, tmp, num_elements*sizeof(TYPE));
 		delete[] data;
-		capacity = mem_res;
+		capacity += mem_res;
 		data = new TYPE[capacity];
 		memcpy(tmp, data, num_elements*sizeof(TYPE));
 		delete[] tmp;
@@ -48,13 +48,14 @@ public:
 		}
 		else
 		{
-			tmp = new TYPE[num_elements++];
+			tmp = new TYPE[capacity];
 			memcpy(data, tmp, num_elements*sizeof(TYPE));
-			delete[] data;
-			data = new TYPE[num_elements+1];
-			capacity = num_elements+1;
+			delete[] tmp;
+			capacity = capacity + BLOCK;
+			data = new TYPE[capacity];
 			memcpy(tmp, data, num_elements*sizeof(TYPE));
-			data[capacity] = tmp;
+			data[num_elements++] = tmp;
+			capacity = capacity + BLOCK;
 			delete[] tmp;
 		}
 
