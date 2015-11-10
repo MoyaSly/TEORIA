@@ -15,15 +15,16 @@ public:
 	//CONSTRUCTOR BUIT
 	DynArray() { data = new TYPE[capacity]; }
 	//CONSTRUCTOR COPIA
-	DynArray(const DynArray& dyn) : num_elements(dyn.num_elements)
+	DynArray(const DynArray<TYPE>& dyn) : num_elements(dyn.num_elements)
 	{
 		capacity = MAX(BLOCK, num_elements);
 		data = new TYPE[capacity];
 		memcpy(data, dyn.data, dyn.num_elements*sizeof(TYPE));
 	}
 	//CONSTRUCTOR RESERVA MEMORIA
-	DynArray(uint mem_res) : capacity(MAX(mem_res, BLOCK))
+	DynArray(uint mem_res) 
 	{
+		capacity = MAX(mem_res, BLOCK);
 		data = new TYPE[capacity];
 	}
 	//DESTRUCTOR
@@ -73,14 +74,64 @@ public:
 	{
 		if (pos <= num_elements) ? data[pos] : NULL;
 	}
-	//TODO
-	/*
-	operator[]
-	operator=
-	pop_back()	(elimina ultim element)
-	srink_to_fit() (si sobra memoria es destrueix la k sobra)
-	flip()
-	insert(pos, data)   ABCDE -> INSERT(1, X) -> AXBCDE
-	*/
+	//OPERATOR []
+	const TYPE operator[](uint pos)
+	{
+		if (pos <= num_elements) ? data[pos] : NULL;
+	}
+	// OPERATOR =
+	const DynArray operator = (const DynArray<TYPE>& dyn)
+	{
+		num_elements = dyn.num_elements;
+		capacity = dyn.capacity;
+		data = new TYPE[capacity];
+		memcpy(data, dyn.data, num_elements*sizeof(TYPE));
+		return *this;
+	}
+	//(elimina ultim element)
+	void PopBack()
+	{
+		data[num_elements--] = NULL;
+	}
+	//(si sobra memoria es destrueix la k sobra)
+	void SrinkToFit()
+	{
+		TYPE* tmp = data;
+		capacity = num_elements + 1;
+		data = new TYPE[capacity];
+		memcpy(data, tmp, num_elements*sizeof(TYPE));
+		delete[] tmp;
+	}
+	//MIRROR
+	void Flip()
+	{
+		if (capacity != (num_elements + 1))
+			SrinkToFit();
+		TYPE* tmp = data;
+		data = new TYPE[capacity];
+		for (uint i = 0; i <= num_elements; ++i)
+		{
+			data[i] = tmp[num_elements - i];
+		}
+		delete[] tmp;
+	}
+	//INSERT DYNARRAY ON ESPECIFIC POS (ABCDE->INSERT(1, X) -> AXBCDE)  
+	void Insert(uint pos, const DynArray<TYPE>& dyn)
+	{
+		TYPE* tmp = data;
+		num_elements += dyn.num_elements;
+		capacity += dyn.capacity;
+		data = new TYPE[capacity];
+		for (uint i = 0; i <= num_elements; ++i)
+		{
+			if (i < pos)
+				data[i] = tmp[i];
+			else if (i < (dyn.num_elements + pos))
+				data[i] = dyn.data[i - pos];
+			else
+				data[i] = tmp[i - dyn.num_elements];
+		}
+		delete[] tmp; 
+	}
 };
 #endif

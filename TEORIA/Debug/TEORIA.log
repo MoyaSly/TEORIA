@@ -1,15 +1,17 @@
-﻿Compilación iniciada a las 04/11/2015 16:59:18.
-     1>Proyecto "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" en el nodo 2 (Build destinos).
+﻿Build started 10/11/2015 12:51:10.
+     1>Project "C:\Users\MIQUEL\Documents\GitHub\TEORIA\TEORIA\TEORIA.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt String.cpp
-         String.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
+         Main.cpp
+     1>c:\users\miquel\documents\github\teoria\teoria\main.cpp(91): warning C4244: 'return' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\miquel\documents\github\teoria\teoria\main.cpp(109): warning C4244: 'return' : conversion from 'const int' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.lib" /MACHINE:X86 Debug\Main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MIQUEL\Documents\GitHub\TEORIA\Debug\TEORIA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MIQUEL\Documents\GitHub\TEORIA\Debug\TEORIA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MIQUEL\Documents\GitHub\TEORIA\Debug\TEORIA.lib" /MACHINE:X86 Debug\Main.obj
          Debug\String.obj
-     1>Main.obj : error LNK2019: sÝmbolo externo "public: class String const & __thiscall String::operator+=(class String const &)" (??YString@@QAEABV0@ABV0@@Z) sin resolver al que se hace referencia en la funci¾n _main
-     1>D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.exe : fatal error LNK1120: 1 externos sin resolver
-     1>Compilación del proyecto terminada "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" (Build destinos) -- ERROR.
+     1>LINK : fatal error LNK1209: program database 'C:\Users\MIQUEL\Documents\GitHub\TEORIA\Debug\TEORIA.pdb' differs from previous link; relink or rebuild
+     1>Done Building Project "C:\Users\MIQUEL\Documents\GitHub\TEORIA\TEORIA\TEORIA.vcxproj" (Build target(s)) -- FAILED.
 
-ERROR al compilar.
+Build FAILED.
 
-Tiempo transcurrido 00:00:01.58
+Time Elapsed 00:00:00.82

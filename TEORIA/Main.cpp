@@ -4,6 +4,7 @@
 #include "Circle.h"
 #include "Point2D.h"
 #include "String.h"
+#include "DynArray.h"
 #include "Defs.h"
 
 // Friend, si a la calss A posem "friend class B;" la class B pot veure tot el private i protected de A.
@@ -195,13 +196,6 @@ int main()
 	iPoint2D b;
 
 	Swap(a, b);*/
-
-	String a = "hola";
-	String b = "adiooos";
-
-	a += b;
-
-	printf("%s", a.c_str());
 
 	getchar();
 }
