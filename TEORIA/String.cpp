@@ -90,30 +90,10 @@ const String& String::operator=(const String& string)
 {
 }
 */
-/*const String& String::operator+=(const String& string)
-{
-	uint need_size = string.Capacity() + strlen(str) + 1;
-	char* tmp = new char[mem_capacity];
-	strcpy_s(tmp, mem_capacity, str);
 
-	if (need_size > mem_capacity)
-	{
-		delete[] str;
-		mem_capacity = need_size;
-		str = new char[need_size];
-		strcpy_s(
-	}
-
-	
-	return *this;
-}*/
 
 const char* String::c_str()const
 {
 	return str;
 }
 
-uint String::GetCapacity(const char* str_c)const
-{
-	return strlen(str_c);
-}

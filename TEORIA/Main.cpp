@@ -197,5 +197,16 @@ int main()
 
 	Swap(a, b);*/
 
+	DynArray<char> a;
+	a.PushBack('h');
+	a.PushBack('o');
+	a.PushBack('l');
+	a.PushBack('a');
+
+	DynArray<char> b = a;
+
+	printf("c%", b);
+
 	getchar();
+	return 0;
 }

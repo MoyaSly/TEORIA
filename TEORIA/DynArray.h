@@ -27,6 +27,7 @@ public:
 		capacity = MAX(mem_res, BLOCK);
 		data = new TYPE[capacity];
 	}
+
 	//DESTRUCTOR
 	~DynArray()
 	{
@@ -37,11 +38,11 @@ public:
 	//AÑADE 1 CARACTER
 	void PushBack(const TYPE& data)
 	{
-		if (capacity < num_elements)
+		if (capacity <= num_elements)
 		{
 			TYPE* tmp = data;
 			capacity = capacity + BLOCK;
-			data = new TYPE[capacity];
+			this->data = new TYPE[capacity];
 			memcpy(data, tmp, num_elements*sizeof(TYPE));
 			delete[] tmp;
 		}
@@ -70,14 +71,22 @@ public:
 		if (data == NULL) ? true : false;
 	}
 	//RETURN POSICION ESPECIFICADA
-	const TYPE At(uint pos)
+	bool At(uint pos)
+	{
+		if (pos <= num_elements)
+		{
+
+		}
+	}
+	//OPERATOR []
+	TYPE& operator[](uint pos)
 	{
 		if (pos <= num_elements) ? data[pos] : NULL;
 	}
-	//OPERATOR []
-	const TYPE operator[](uint pos)
+	//OPERATOR [] CONST
+	const TYPE& operator[](uint pos) const
 	{
-		if (pos <= num_elements) ? data[pos] : NULL;
+		if (pos < num_elements) ? data[pos] : NULL;
 	}
 	// OPERATOR =
 	const DynArray operator = (const DynArray<TYPE>& dyn)
@@ -89,21 +98,29 @@ public:
 		return *this;
 	}
 	//(elimina ultim element)
-	void PopBack()
+	bool PopBack()
 	{
-		data[num_elements--] = NULL;
+		if(num_elements > 0)
+		{
+			--num_elements;
+			return true;
+		}
+		return false;
 	}
 	//(si sobra memoria es destrueix la k sobra)
 	void SrinkToFit()
 	{
+		if (capacity != num_elements)
+		{
 		TYPE* tmp = data;
-		capacity = num_elements + 1;
+		capacity = num_elements;
 		data = new TYPE[capacity];
 		memcpy(data, tmp, num_elements*sizeof(TYPE));
 		delete[] tmp;
+		}
 	}
 	//MIRROR
-	void Flip()
+	void Flip() //HACER CON SWAP
 	{
 		if (capacity != (num_elements + 1))
 			SrinkToFit();
@@ -119,9 +136,13 @@ public:
 	void Insert(uint pos, const DynArray<TYPE>& dyn)
 	{
 		TYPE* tmp = data;
+		
+		if (capacity < num_elements+dyn.num_elements)
+			capacity += dyn.capacity;
+
 		num_elements += dyn.num_elements;
-		capacity += dyn.capacity;
 		data = new TYPE[capacity];
+
 		for (uint i = 0; i <= num_elements; ++i)
 		{
 			if (i < pos)
