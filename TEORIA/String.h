@@ -1,7 +1,6 @@
-#include "Defs.h"
 #ifndef __STRING__
 #define __STRING__
-
+#include "Defs.h"
 
 class String
 {

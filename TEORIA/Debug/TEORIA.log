@@ -1,27 +1,16 @@
-﻿Compilación iniciada a las 11/11/2015 16:51:49.
+﻿Compilación iniciada a las 18/11/2015 16:35:53.
      1>Proyecto "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
          Main.cpp
      1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(91): warning C4244: 'return' : conversión de 'int' a 'float'; posible pérdida de datos
      1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(109): warning C4244: 'return' : conversión de 'const int' a 'float'; posible pérdida de datos
-     1>d:\users\miquelms4\desktop\teoria\teoria\dynarray.h(43): error C2440: 'inicializando' : no se puede realizar la conversión de 'const char' a 'char *'
-                 La conversión de un tipo entero a un tipo de puntero requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
-                 d:\users\miquelms4\desktop\teoria\teoria\dynarray.h(40) : durante la compilación de la función miembro de plantilla de clase 'void DynArray<char>::PushBack(const TYPE &)'
-                 with
-                 [
-                     TYPE=char
-                 ]
-                 d:\users\miquelms4\desktop\teoria\teoria\main.cpp(201) : vea la referencia a la creación de instancias de plantilla de función 'void DynArray<char>::PushBack(const TYPE &)' que se está compilando
-                 with
-                 [
-                     TYPE=char
-                 ]
-                 d:\users\miquelms4\desktop\teoria\teoria\main.cpp(200) : vea la referencia a la creación de instancias de plantilla de clase 'DynArray<char>' que se está compilando
-     1>d:\users\miquelms4\desktop\teoria\teoria\dynarray.h(46): error C2664: 'void *memcpy(void *,const void *,size_t)' : el argumento 1 no puede convertirse de 'const char' a 'void *'
-                 La conversión de un tipo entero a un tipo de puntero requiere reinterpret_cast, conversión de estilo de C o conversión de estilo de función
-     1>Compilación del proyecto terminada "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" (Build destinos) -- ERROR.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.lib" /MACHINE:X86 Debug\Main.obj
+         Debug\String.obj
+         TEORIA.vcxproj -> D:\Users\miquelms4\Desktop\TEORIA\Debug\TEORIA.exe
+     1>Compilación del proyecto terminada "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:00.46
+Tiempo transcurrido 00:00:01.03

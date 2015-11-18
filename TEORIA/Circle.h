@@ -1,7 +1,6 @@
-#include "Defs.h"
 #ifndef __CIRCLE__
 #define __CIRCLE__
-
+#include "Defs.h"
 
 
 template <class TYPE>

@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -6,6 +7,7 @@
 #include "String.h"
 #include "DynArray.h"
 #include "Defs.h"
+#include "List.h"
 
 // Friend, si a la calss A posem "friend class B;" la class B pot veure tot el private i protected de A.
 // al struct si no poses res tot el public, en canvi a una class tot es privat a no ser que posis public.
@@ -64,8 +66,6 @@ Per crearse el 5e s'han de cumplir:
 		- s'han dinicialitzar fora de la classe i en un .cpp (en un .h no es poden inicialitar estatiques)
 
 */
-
-using namespace std;
 
 class Shape
 {
@@ -157,56 +157,13 @@ void Swap(char* node1, char* node2)
 
 int main()
 {
-/*	Shape* s1 = new Triangle();
-	Shape* s2 = new Cuadrado();
 
-	s1->altura = 4;
-	s1->base = 3;
-	s2->altura = 4;
-	s2->base = 3;
+	List<uint> list;
 
-	cout << s1->GetArea() << endl;
-	cout << s2->GetArea() << endl;
-	int a = 5;
-	int b = 6;
-	float a1 = 5.0f;
-	float b1 = 6.6f;
-	char a2 = '5';
-	char b2 = '6';
-
-	cout << endl << a << endl << b << endl << a1 << endl << b1 << endl << a2 << endl << b2 << endl;
-	delete s1;
-	delete s2;
-	*/
-
-
-/*	int* pa = &a;
-	int* pb = &b;
-	float* pa1 = &a1;
-	float* pb1 = &b1;
-	char* pa2 = &a2;
-	char* pb2 = &b2;
-
-	Swap(pa, pb);
-	Swap(pa1, pb1);
-	Swap(pa2, pb2);
-	
-
-	iPoint2D a;
-	iPoint2D b;
-
-	Swap(a, b);*/
-
-	DynArray<char> a;
-	a.PushBack('h');
-	a.PushBack('o');
-	a.PushBack('l');
-	a.PushBack('a');
-
-	DynArray<char> b = a;
-
-	printf("c%", b);
-
+	list.PushBack(1);
+	list.PushBack(2);
+	list.PushBack(3);
+	list.Clear();
 	getchar();
 	return 0;
 }
