@@ -13,26 +13,17 @@ private:
 
 public:
 
+	friend List;
 	TYPE data = NULL;
 
 	ListNode(const TYPE& data) : data(data){}
 
-	ListNode<TYPE>* SetNext()
-	{
-		return next;
-	}
-
-	ListNode<TYPE>* SetPrev()
-	{
-		return prev;
-	}
-
-	void GetNext(ListNode<TYPE>* next)
+	void SetNext(ListNode<TYPE>* next)
 	{
 		this->next = next;
 	}
 
-	void GetPrev(ListNode<TYPE>* prev)
+	void SetPrev(ListNode<TYPE>* prev)
 	{
 		this->prev = prev;
 	}
@@ -43,10 +34,10 @@ class List
 {
 public:
 	List(){};
-	~List(){ Clear(); };
+	~List(){ Clear();};
 
-	void GetStart(ListNode<TYPE>* start){this->start = start;}
-	void GetEnd(ListNode<TYPE>* end)
+	void SetStart(ListNode<TYPE>* start){this->start = start;}
+	void SetEnd(ListNode<TYPE>* end)
 	{
 		ListNode<TYPE>* tmp = start;
 		while (tmp->SetNext() != NULL)
@@ -57,12 +48,9 @@ public:
 		tmp->SetNext()->GetPrev(tmp);
 	}
 
-	ListNode<TYPE>* SetStart()
-	{
-		return start;
-	}
+	ListNode<TYPE>* GetStart(){return start;}
 
-	ListNode<TYPE>* SetEnd()
+	ListNode<TYPE>* GetEnd()
 	{
 		ListNode<TYPE>* tmp = start;
 		while (tmp->SetNext() != NULL)
@@ -72,18 +60,6 @@ public:
 		return tmp;
 	}
 	
-	//RETURN INICI
-	ListNode<TYPE>* GetStart(){ return start;}
-	//RETURN FINAL
-	ListNode<TYPE>* GetEnd()
-	{
-		ListNode<TYPE>* tmp = start;
-		while (tmp->next != NULL)
-		{
-			tmp = tmp->next;
-		}
-		return tmp;
-	}
 	//TAMANY
 	uint Size() const
 	{
@@ -149,25 +125,36 @@ public:
 
 	}
 
-	TYPE& PopBack()
+	bool PopBack(TYPE& var)
 	{
-		ListNode<TYPE>* tmp = SetEnd();
-		tmp->SetPrev()->GetNext(tmp->SetPrev());
-		delete tmp;
-		return tmp->data;
-
+		if (start != NULL)
+		{
+			ListNode<TYPE>* tmp = SetEnd();
+			tmp->prev->SetNext(NULL);
+			var = tmp->data;
+			delete tmp;
+			return true;
+		}
+		return false;
 	}
 
-	TYPE& PopFront()
+	bool PopFront(TYPE& var)
 	{
-		ListNode<TYPE>* tmp = SetStart();
-		tmp->SetNext()->GetPrev(start);
-		delete tmp;
-		return tmp->data;
+		if (start != NULL)
+		{
+			ListNode<TYPE>* tmp = SetStart();
+			tmp->next->SetPrev(NULL);
+			var = tmp->data;
+			delete tmp;
+			return true;
+		}
+		return false;
 	}
 
 	void Insert(uint pos, const TYPE& item)
 	{
+		ListNode<TYPE>* tmp = start;
+		ListNode<TYPE>* new_node = new ListNode<TYPE>(item);
 		if (start == NULL)
 			start = new_node;
 		else if (pos > Size())
@@ -176,9 +163,6 @@ public:
 		}
 		else
 		{
-			ListNode<TYPE>* tmp = start;
-			ListNode<TYPE>* new_node = new ListNode<TYPE>(item);
-
 			for (uint i = 0; i <= pos; i++)
 			{
 				tmp = tmp->next;
@@ -198,7 +182,6 @@ public:
 		}
 		else
 		{
-
 			ListNode<TYPE>* tmp = start;
 		
 			for (uint i = 0; i < pos; i++)
