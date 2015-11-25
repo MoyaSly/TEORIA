@@ -86,11 +86,76 @@ const String& String::operator=(const String& string)
 	return(*this);
 }
 
-/*const String& String::operator+=(const char* str_c)
-{
-}
-*/
 
+const String& String::operator+=(const String& string)
+{
+	if (string.c_str() != NULL && str != NULL)
+	{
+		int sizeToFill = strlen(str) + strlen(string.c_str()) + 1;
+
+
+
+		if (sizeToFill > Capacity())
+		{
+
+			int finalSize = GetChunkSizeNeeded(sizeToFill);
+
+			char* tmp = new char[finalSize];
+			strcpy_s(tmp, strlen(str) + 1, str);
+			delete[] str;
+			strcat_s(tmp, sizeToFill, string.str);
+			str = tmp;
+
+		}
+		else
+		{
+			strcat_s(str, strlen(string.c_str()) + 1, string.c_str());
+		}
+	}
+
+	return (*this);
+}
+
+
+const String& String::operator+=(const char* str_c)
+{
+
+	if (str_c != NULL && str != NULL)
+	{
+		int size_to_fill = strlen(str) + strlen(str_c) + 1;
+
+		if (size_to_fill > Capacity())
+		{
+
+			int final_size = GetChunkSizeNeeded(size_to_fill);
+
+			char* tmp = new char[final_size];
+			memset(tmp, 0, final_size);
+			strcpy_s(tmp, strlen(str) + 1, str);
+			delete[] str;
+
+			strcat_s(tmp, size_to_fill, str_c);
+
+			str = tmp;
+			mem_capacity = final_size;
+		}
+		else
+		{
+			strcat_s(str, size_to_fill, str_c);
+			mem_capacity = size_to_fill;
+		}
+	}
+
+	return (*this);
+}
+
+int String::GetChunkSizeNeeded(int size)const
+{
+	int numChunksdiv = size / MEMORY_CHUNK;
+	int finalInt = ((numChunksdiv + 1) * MEMORY_CHUNK);
+
+	return finalInt;
+}
 
 const char* String::c_str()const
 {

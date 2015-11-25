@@ -7,7 +7,7 @@ class String
 private:
 	char* str;
 	uint mem_capacity;
-
+	int GetChunkSizeNeeded(int size)const;
 public:
 	//Constructor  buit
 	String();
@@ -31,9 +31,9 @@ public:
 	//operador = String
 	const String& operator=(const String& string);
 	//operador += Char
-	//const String& operator+=(const char* str_c);
+	const String& operator+=(const char* str_c);
 	//operador += String
-	//const String& operator+=(const String& string);
+	const String& operator+=(const String& string);
 
 
 	//Capacity
@@ -42,6 +42,8 @@ public:
 	uint GetCapacity(const char* str_c)const;
 	//String to Char
 	const char* c_str()const;
+
+	
 
 	//operadors d'asignacio
 	//mirem si necessitem memoria, sino no fem new

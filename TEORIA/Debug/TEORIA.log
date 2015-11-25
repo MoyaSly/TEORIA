@@ -1,36 +1,21 @@
-﻿Compilación iniciada a las 23/11/2015 16:56:55.
-     1>Proyecto "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 25/11/2015 14:25:10.
+     1>Proyecto "D:\Users\miquelms4\Downloads\TEORIA-master\TEORIA\TEORIA.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         C:\soft\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp String.cpp
+         String.cpp
+     1>d:\users\miquelms4\downloads\teoria-master\teoria\string.cpp(98): warning C4018: '>' : no coinciden signed/unsigned
+     1>d:\users\miquelms4\downloads\teoria-master\teoria\string.cpp(127): warning C4018: '>' : no coinciden signed/unsigned
          Main.cpp
-     1>d:\users\miquelms4\desktop\teoria\teoria\list.h(16): error C2433: 'List' : 'friend' no se permite en las declaraciones de datos
-                 d:\users\miquelms4\desktop\teoria\teoria\list.h(30) : vea la referencia a la creación de instancias de plantilla de clase 'ListNode<TYPE>' que se está compilando
-     1>d:\users\miquelms4\desktop\teoria\teoria\list.h(16): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(91): warning C4244: 'return' : conversión de 'int' a 'float'; posible pérdida de datos
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(109): warning C4244: 'return' : conversión de 'const int' a 'float'; posible pérdida de datos
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(161): error C2275: 'uint' : uso no válido de este tipo como expresión
-                 d:\users\miquelms4\desktop\teoria\teoria\defs.h(4) : vea la declaración de 'uint'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(161): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(163): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(163): error C2228: el operando izquierdo de '.PushBack' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(164): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(164): error C2228: el operando izquierdo de '.PushBack' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(165): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(165): error C2228: el operando izquierdo de '.PushBack' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(167): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(167): error C2228: el operando izquierdo de '.PopFront' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(168): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(168): error C2228: el operando izquierdo de '.PopBack' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(170): error C2065: 'list' : identificador no declarado
-     1>d:\users\miquelms4\desktop\teoria\teoria\main.cpp(170): error C2228: el operando izquierdo de '.Clear' debe tener class/struct/union
-                 el tipo es 'unknown-type'
-     1>Compilación del proyecto terminada "D:\Users\miquelms4\Desktop\TEORIA\TEORIA\TEORIA.vcxproj" (Build destinos) -- ERROR.
+     1>d:\users\miquelms4\downloads\teoria-master\teoria\main.cpp(91): warning C4244: 'return' : conversión de 'int' a 'float'; posible pérdida de datos
+     1>d:\users\miquelms4\downloads\teoria-master\teoria\main.cpp(109): warning C4244: 'return' : conversión de 'const int' a 'float'; posible pérdida de datos
+         Generando código...
+       Link:
+         C:\soft\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\miquelms4\Downloads\TEORIA-master\Debug\TEORIA.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\miquelms4\Downloads\TEORIA-master\Debug\TEORIA.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\miquelms4\Downloads\TEORIA-master\Debug\TEORIA.lib" /MACHINE:X86 Debug\Main.obj
+         Debug\String.obj
+         LINK : no se encontró D:\Users\miquelms4\Downloads\TEORIA-master\Debug\TEORIA.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+         TEORIA.vcxproj -> D:\Users\miquelms4\Downloads\TEORIA-master\Debug\TEORIA.exe
+     1>Compilación del proyecto terminada "D:\Users\miquelms4\Downloads\TEORIA-master\TEORIA\TEORIA.vcxproj" (Build destinos).
 
-ERROR al compilar.
+Compilación correcta.
 
-Tiempo transcurrido 00:00:00.57
+Tiempo transcurrido 00:00:01.96

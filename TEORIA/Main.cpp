@@ -163,10 +163,6 @@ int main()
 	list.PushBack(1);
 	list.PushBack(2);
 	list.PushBack(3);
-	uint a, b;
-	list.PopFront(a);
-	list.PopBack(b);
-
 	list.Clear();
 	getchar();
 	return 0;
