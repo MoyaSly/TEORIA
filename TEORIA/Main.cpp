@@ -8,6 +8,9 @@
 #include "DynArray.h"
 #include "Defs.h"
 #include "List.h"
+#include "StackList.h"
+
+using namespace std;
 
 // Friend, si a la calss A posem "friend class B;" la class B pot veure tot el private i protected de A.
 // al struct si no poses res tot el public, en canvi a una class tot es privat a no ser que posis public.
@@ -128,7 +131,7 @@ void Swap(TYPE& node1, TYPE& node2)
 	a = node1;
 	node1 = node2;
 	node2 = a;
-}
+};
 
 /*void Swap(int* node1, int* node2)
 {
@@ -157,13 +160,22 @@ void Swap(char* node1, char* node2)
 
 int main()
 {
+	StackList<char> st;
+	st.Push('a');
+	st.Push('l');
+	st.Push('o');
+	st.Push('h');
 
-	List<uint> list;
+	char h, o, l, a;
 
-	list.PushBack(1);
-	list.PushBack(2);
-	list.PushBack(3);
-	list.Clear();
+	st.Pop(h);
+	st.Pop(o);
+	st.Pop(l);
+	st.Pop(a);
+
+
+	cout << h << o << l << a;
+
 	getchar();
 	return 0;
 }
