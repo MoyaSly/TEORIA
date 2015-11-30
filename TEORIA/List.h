@@ -6,36 +6,12 @@
 template <class TYPE>
 struct ListNode
 {
-private:
-
 	ListNode<TYPE>* next = NULL;
 	ListNode<TYPE>* prev = NULL;
-
-public:
 
 	TYPE data = NULL;
 
 	ListNode(const TYPE& data) : data(data){}
-
-	ListNode<TYPE>* SetNext()
-	{
-		return next;
-	}
-
-	ListNode<TYPE>* SetPrev()
-	{
-		return prev;
-	}
-
-	void GetNext(ListNode<TYPE>* next)
-	{
-		this->next = next;
-	}
-
-	void GetPrev(ListNode<TYPE>* prev)
-	{
-		this->prev = prev;
-	}
 };
 
 template <class TYPE>
@@ -46,28 +22,24 @@ public:
 	~List(){ Clear(); };
 
 	void GetStart(ListNode<TYPE>* start){this->start = start;}
+
 	void GetEnd(ListNode<TYPE>* end)
 	{
 		ListNode<TYPE>* tmp = start;
-		while (tmp->SetNext() != NULL)
+		while (tmp->next != NULL)
 		{
-			tmp = tmp->SetNext();
+			tmp = tmp->next;
 		}
-		tmp->GetNext() = end;
-		tmp->SetNext()->GetPrev(tmp);
-	}
-
-	ListNode<TYPE>* SetStart()
-	{
-		return start;
+		tmp->next = end;
+		tmp->next->prev = tmp;
 	}
 
 	ListNode<TYPE>* SetEnd()
 	{
 		ListNode<TYPE>* tmp = start;
-		while (tmp->SetNext() != NULL)
+		while (tmp->next != NULL)
 		{
-			tmp = tmp->SetNext();
+			tmp = tmp->next;
 		}
 		return tmp;
 	}
@@ -107,8 +79,8 @@ public:
 		else
 		{
 			ListNode<TYPE>* tmp = SetEnd();
-			tmp->GetNext(new_node);
-			new_node->GetPrev(tmp);
+			tmp->next = new_node;
+			new_node->prev = tmp;
 		}
 	}
 
@@ -118,10 +90,10 @@ public:
 		if (start != NULL)
 		{
 			ListNode<TYPE>* tmp = start;
-			while (tmp->SetNext() != NULL)
+			while (tmp->next != NULL)
 			{
-				tmp = tmp->SetNext();
-				delete tmp->SetPrev();
+				tmp = tmp->next;
+				delete tmp->prev;
 
 			}
 		}
@@ -142,9 +114,9 @@ public:
 			start = new_node;
 		else
 		{
-			ListNode<TYPE>* tmp = GetStart();
-			new_node->GetNext(tmp);
-			tmp->GetPrev(new_node);
+			ListNode<TYPE>* tmp = start;
+			new_node->next = tmp;
+			tmp->prev = new_node;
 		}
 
 	}
@@ -152,7 +124,7 @@ public:
 	bool PopBack(TYPE& var)
 	{
 		ListNode<TYPE>* tmp = SetEnd();
-		tmp->SetPrev()->GetNext(tmp->SetPrev());
+		tmp->prev->next = tmp->prev;
 		var = tmp->data;
 		delete tmp;
 		return true
@@ -160,8 +132,8 @@ public:
 
 	bool PopFront(TYPE& var)
 	{
-		ListNode<TYPE>* tmp = SetStart();
-		tmp->SetNext()->GetPrev(start);
+		ListNode<TYPE>* tmp = start;
+		tmp->next->prev = tmp;
 		var = tmp->data;
 		delete tmp;
 		return true;
@@ -182,10 +154,10 @@ public:
 
 			tmp.Search(pos);
 
-			new_node->GetPrev(tmp->SetPrev());
-			new_node->GetNext(tmp->SetNext());
-			tmp->GetNext(new_node->SetNext());
-			tmp->GetPrev(new_node);
+			new_node->prev = tmp->prev;
+			new_node->next = tmp->next;
+			tmp->next = new_node->next;
+			tmp->prev = new_node;
 		}
 	}
 
@@ -202,10 +174,10 @@ public:
 
 			tmp.Search(pos);
 
-			tmp->SetPrev()->GetNext(tmp);
-			tmp->SetPrev()->GetPrev(tmp->SetPrev()->SetPrev());
-			tmp->SetNext()->GetPrev(tmp);
-			tmp->SetNext()->GetNext(tmp->SetNext()->SetNext());
+			tmp->prev->next = tmp;
+			tmp->prev->prev = tmp->prev->prev;
+			tmp->next->prev = tmp;
+			tmp->next->next = tmp->next->next;
 			delete tmp;
 		}
 	}
