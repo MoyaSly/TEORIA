@@ -157,24 +157,31 @@ void Swap(char* node1, char* node2)
 	*node2 = a;
 }*/
 
+// STACK OVERFLOW -> int main(){main();}
 
+int factorial(int num)
+{
+	if (num > 1)
+		return num*factorial(num - 1);
+	else
+		return 1;
+};
+
+int factorial_iter(int num)
+{
+	int res = 1;
+	for (int i = 0; i < num; i++)
+		res = res*(num - i);
+	return res;
+};
+
+
+//DEVERES FIBONACHI
 int main()
 {
-	StackList<char> st;
-	st.Push('a');
-	st.Push('l');
-	st.Push('o');
-	st.Push('h');
-
-	char h, o, l, a;
-
-	st.Pop(h);
-	st.Pop(o);
-	st.Pop(l);
-	st.Pop(a);
-
-
-	cout << h << o << l << a;
+	
+	cout << factorial_iter(13) << endl;
+	cout << factorial(13) << endl;
 
 	getchar();
 	return 0;
