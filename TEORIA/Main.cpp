@@ -176,7 +176,11 @@ int factorial_iter(int num)
 };
 
 
-//DEVERES FIBONACHI
+int fibo(int n)
+{
+	return n<2 ? n : fibo(n - 1) + fibo(n - 2);
+}
+
 int main()
 {
 	
